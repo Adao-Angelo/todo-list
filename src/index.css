@@ -1,0 +1,9 @@
+@import url(./assets/fonts/index.css);
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  font-size: 62.5%;
+}
