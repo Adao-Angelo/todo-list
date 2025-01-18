@@ -41,7 +41,7 @@ function App() {
           </h1>
         </div>
       </div>
-      <div>
+      <div className="px-[1rem]">
         <section className="flex  m-auto mt-[-3rem]  items-center gap-[0.8rem] max-w-[73.6rem]">
           <input
             className="flex-1 border outline-none
