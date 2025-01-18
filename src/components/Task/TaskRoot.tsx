@@ -14,7 +14,8 @@ export default function TaskRoot({ children, taskId, index }: TaskRootProps) {
           {...providers.draggableProps}
           {...providers.dragHandleProps}
           ref={providers.innerRef}
-          className=" rounded-[0.8rem] flex items-start gap-[1.2rem] p-[1.6rem] bg-gray-500 border border-gray-400"
+          className="rounded-[0.8rem] flex items-start gap-[1.2rem] p-[1.6rem] dark:bg-gray-500 
+           bg-gray-100 border dark:border-gray-400 border-gray-200"
         >
           {children}
         </div>

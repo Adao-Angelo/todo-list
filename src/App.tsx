@@ -31,8 +31,8 @@ function App() {
   };
 
   return (
-    <main className="bg-gray-600 min-h-screen text-gray-300 text-[1.6rem] pb-[20rem]">
-      <div className="bg-gray-700 pt-[7.2rem] pb-[8rem] flex justify-center items-center">
+    <main className="dark:bg-gray-600 bg-gray-50 min-h-screen text-gray-300 text-[1.6rem] pb-[20rem]">
+      <div className="dark:bg-gray-700 bg-gray-200 pt-[7.2rem] pb-[8rem] flex justify-center items-center">
         <div className="flex items-center gap-[1.2rem]">
           <Rocket className="w-[2.4rem] text-purpleDark  animate-up-down"></Rocket>
           <h1 className="text-[4rem] font-black">
@@ -44,7 +44,10 @@ function App() {
       <div>
         <section className="flex  m-auto mt-[-3rem]  items-center gap-[0.8rem] max-w-[73.6rem]">
           <input
-            className="flex-1 border outline-none border-gray-700 text-[1.6rem] bg-gray-500 rounded-[0.8rem] p-[1.6rem] placeholder:text-gray-300 focus:border-purpleDark focus:text-gray-100"
+            className="flex-1 border outline-none
+            dark:border-gray-700 border-gray-200 text-[1.6rem] dark:bg-gray-500  bg-gray-100 
+              rounded-[0.8rem] p-[1.6rem] placeholder:text-gray-300 
+            focus:border-purpleDark dark:focus:text-gray-100 focus:text-gray-700"
             type="text"
             placeholder="Add a new task..."
             value={newTask}

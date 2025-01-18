@@ -10,7 +10,7 @@ export default function TaskRemover({ taskId, onRemove }: TaskRemoverProps) {
     <Trash2
       onClick={() => onRemove(taskId)}
       size={32}
-      className="hover:bg-gray-400 cursor-pointer hover:text-Danger rounded-[0.4rem] p-[0.5rem]"
+      className="hover:bg-gray-200 dark:hover:bg-gray-400 cursor-pointer hover:text-Danger rounded-[0.4rem] p-[0.5rem]"
     ></Trash2>
   );
 }

@@ -2,7 +2,7 @@ import { ClipboardList } from "lucide-react";
 
 export default function EmptyState() {
   return (
-    <div className="border-t  border-gray-400 flex justify-center items-center min-h-[24.4rem]">
+    <div className="border-t  dark:border-gray-400 border-gray-200 flex justify-center items-center min-h-[24.4rem]">
       <div className="text-center">
         <ClipboardList
           size={56}
