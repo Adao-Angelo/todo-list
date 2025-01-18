@@ -61,19 +61,6 @@ Follow these steps to get the project up and running on your local machine:
 
 ---
 
-## 📧 .env Configuration
-
-To configure the project, add a `.env` file in the root directory with the following keys:
-
-```env
-# Example .env file
-REACT_APP_API_URL=your-api-url-here
-REACT_APP_FEATURE_FLAG=true
-```
-
-[Detailed documentation](./docs/env.md).
-
----
 
 ## 📧 Contact
 
