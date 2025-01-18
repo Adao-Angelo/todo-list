@@ -20,6 +20,15 @@ export default {
         Danger: "#E25858",
       },
       fontFamily: { sans: ["Inter", "sans-serif"] },
+      animation: {
+        "up-down": "upDown 2s ease-in-out infinite",
+      },
+      keyframes: {
+        upDown: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
+      },
     },
   },
   plugins: [],
