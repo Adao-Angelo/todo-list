@@ -1,3 +1,4 @@
+import { DragDropContext, Droppable } from "@hello-pangea/dnd";
 import { CirclePlus, Rocket } from "lucide-react";
 import { useState } from "react";
 import EmptyState from "./components/EmptyState";
@@ -5,10 +6,29 @@ import { Task } from "./components/Task";
 import { TaskType, useTasksStore } from "./store/TasksStore";
 
 function App() {
-  const { tasks, addTask, removeTask } = useTasksStore();
+  const { tasks, addTask, removeTask, setTasks } = useTasksStore();
   const [newTask, setNewTask] = useState("");
   const completedTasks = tasks.filter((task) => task.completed).length;
   const totalTasks = tasks.length;
+
+  function Reorder<T>(list: T[], startIndex: number, endIndex: number) {
+    const result = Array.from(list);
+    const [removed] = result.splice(startIndex, 1);
+    result.splice(endIndex, 0, removed);
+
+    return result;
+  }
+
+  const handleDragEnd = (result: any) => {
+    if (!result.destination) return;
+
+    const listTask = Reorder(
+      tasks,
+      result.source.index,
+      result.destination.index
+    );
+    setTasks(listTask);
+  };
 
   return (
     <main className="bg-gray-600 min-h-screen text-gray-300 text-[1.6rem] pb-[20rem]">
@@ -63,21 +83,39 @@ function App() {
               </span>
             </div>
           </div>
-          <div className="mt-[2.4rem] grid gap-[1.2rem] overflow-y-scroll">
-            {tasks.length > 0 ? (
-              tasks.map((task: TaskType) => (
-                <Task.TaskRoot key={task.id}>
-                  <Task.TaskChecker completed={task.completed} />
-                  <Task.TaskContent completed={task.completed}>
-                    {task.title}
-                  </Task.TaskContent>
-                  <Task.TaskRemover taskId={task.id} onRemove={removeTask} />
-                </Task.TaskRoot>
-              ))
-            ) : (
-              <EmptyState />
-            )}
-          </div>
+          <DragDropContext onDragEnd={handleDragEnd}>
+            <Droppable droppableId="Tasks" type="list" direction="vertical">
+              {(providers) => (
+                <div
+                  ref={providers.innerRef}
+                  {...providers.droppableProps}
+                  className="mt-[2.4rem] grid gap-[1.2rem] overflow-y-scroll"
+                >
+                  {tasks.length > 0 ? (
+                    tasks.map((task: TaskType, index) => (
+                      <Task.TaskRoot
+                        index={index}
+                        taskId={task.id}
+                        key={task.id}
+                      >
+                        <Task.TaskChecker completed={task.completed} />
+                        <Task.TaskContent completed={task.completed}>
+                          {task.title}
+                        </Task.TaskContent>
+                        <Task.TaskRemover
+                          taskId={task.id}
+                          onRemove={removeTask}
+                        />
+                      </Task.TaskRoot>
+                    ))
+                  ) : (
+                    <EmptyState />
+                  )}
+                  {providers.placeholder}
+                </div>
+              )}
+            </Droppable>
+          </DragDropContext>
         </div>
       </div>
     </main>
