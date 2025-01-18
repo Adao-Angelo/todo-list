@@ -11,6 +11,7 @@ export type TaskStore = {
   addTask: (task: TaskType) => void;
   removeTask: (taskId: string) => void;
   setTasks: (tasks: TaskType[]) => void;
+  toggleTaskCompleted: (taskId: string) => void;
 };
 
 const LOCAL_STORAGE_KEY = "tasks";
@@ -48,10 +49,21 @@ export const useTasksStore = create<TaskStore>((set) => {
     set({ tasks });
   };
 
+  const toggleTaskCompleted = (taskId: string) => {
+    set((state) => {
+      const updatedTasks = state.tasks.map((task) =>
+        task.id === taskId ? { ...task, completed: !task.completed } : task
+      );
+      saveTasksToLocalStorage(updatedTasks);
+      return { tasks: updatedTasks };
+    });
+  };
+
   return {
     tasks: initialTasks,
     addTask,
     removeTask,
     setTasks,
+    toggleTaskCompleted,
   };
 });

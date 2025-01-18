@@ -1,4 +1,4 @@
-import TaskChecker from "./TaskCheck";
+import TaskChecker from "./TaskChecker";
 import TaskContent from "./TaskContent";
 import TaskRemover from "./TaskRemover";
 import TaskRoot from "./TaskRoot";

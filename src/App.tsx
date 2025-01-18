@@ -98,7 +98,10 @@ function App() {
                         taskId={task.id}
                         key={task.id}
                       >
-                        <Task.TaskChecker completed={task.completed} />
+                        <Task.TaskChecker
+                          taskId={task.id}
+                          completed={task.completed}
+                        />
                         <Task.TaskContent completed={task.completed}>
                           {task.title}
                         </Task.TaskContent>
