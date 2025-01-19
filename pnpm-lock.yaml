@@ -23,6 +23,9 @@ importers:
       react-drag-and-drop:
         specifier: ^3.0.0
         version: 3.0.0
+      react-icons:
+        specifier: ^5.4.0
+        version: 5.4.0(react@18.3.1)
       zustand:
         specifier: ^5.0.3
         version: 5.0.3(@types/react@18.3.18)(react@18.3.1)(use-sync-external-store@1.4.0(react@18.3.1))
@@ -1172,6 +1175,11 @@ packages:
 
   react-drag-and-drop@3.0.0:
     resolution: {integrity: sha512-NO/BVF8LxinZSJlm3DpWWgIndCy6gu/gHwORPE+I3YINBLi+EF3WlYmho8ooKkHRfefz1Fd1cfoVASKJ1bOhbg==}
+
+  react-icons@5.4.0:
+    resolution: {integrity: sha512-7eltJxgVt7X64oHh6wSWNwwbKTCtMfK35hcjvJS0yxEAhPM8oUKdS3+kqaW1vicIltw+kR2unHaa12S9pPALoQ==}
+    peerDependencies:
+      react: '*'
 
   react-redux@9.2.0:
     resolution: {integrity: sha512-ROY9fvHhwOD9ySfrF0wmvu//bKCQ6AeZZq1nJNtbDC+kk5DuSuNX/n6YWYF/SYy7bSba4D4FSz8DJeKY/S/r+g==}
@@ -2479,6 +2487,10 @@ snapshots:
       scheduler: 0.23.2
 
   react-drag-and-drop@3.0.0: {}
+
+  react-icons@5.4.0(react@18.3.1):
+    dependencies:
+      react: 18.3.1
 
   react-redux@9.2.0(@types/react@18.3.18)(react@18.3.1)(redux@5.0.1):
     dependencies:
