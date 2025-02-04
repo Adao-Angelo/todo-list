@@ -92,7 +92,7 @@ function App() {
                 <div
                   ref={providers.innerRef}
                   {...providers.droppableProps}
-                  className="mt-[2.4rem] grid gap-[1.2rem] overflow-y-scroll"
+                  className="mt-[2.4rem] grid gap-[1.2rem] overflow-y-hidden"
                 >
                   {tasks.length > 0 ? (
                     tasks.map((task: TaskType, index) => (
